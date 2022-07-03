@@ -1,0 +1,29 @@
+import numpy as np
+import math
+import statistics as st
+x=np.array([16,21,26,23,28,24,17,22,21])
+y=np.array([33,38,50,39,52,47,35,43,41])
+n=len(x)
+xy=x*y
+xx=x*x
+yy=y*y
+sx=sum(x)
+sy=sum(y)
+sxy=sum(xy)
+sxx=sum(xx)
+syy=sum(yy)
+xbar=sx/n
+ybar=sy/n
+covxy=(sxy/n)-(xbar*ybar)
+sigmax=math.sqrt(st.variance(x))
+sigmay=math.sqrt(st.variance(y))
+r=covxy/(sigmax*sigmay)
+a=(r*sigmax)/sigmay
+c1=xbar-(a*ybar)
+print("regression line x on y : ")
+print('x = ',a,'y + ',c1)
+b=(r*sigmay)/sigmax
+c2=ybar-(b*xbar)
+print("regression line y on x : ")
+print('y = ',b,'x + ',c2)
+
